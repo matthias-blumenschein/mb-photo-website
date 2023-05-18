@@ -1,5 +1,10 @@
 import React, { useRef } from "react";
+import Hero from "./sections/hero/Hero";
+import Contact from "./sections/contact/Contact";
+import GalleryExt1 from "./sections/galleries/exterior/book1/GalleryExt1";
+import GalleryExt2 from "./sections/galleries/exterior/book2/GalleryExt2";
 import "./App.css";
+import GalleryInt1 from "./sections/galleries/interior/book1/GalleryInt1";
 
 const HorizontalScroll = () => {
   const containerRef = useRef(null);
@@ -16,10 +21,11 @@ const HorizontalScroll = () => {
   return (
     <div className="appContainer" ref={containerRef} onWheel={handleScroll}>
       <main>
-        <section>erste section</section>
-        <section>zweite section</section>
-        <section>dritte section</section>
-        <section>vierte section</section>
+        <Hero />
+        <GalleryExt1 />
+        <GalleryExt2 />
+        <GalleryInt1 />
+        <Contact />
       </main>
     </div>
   );
