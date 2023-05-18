@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import "./App.css";
 
-function App() {
+const HorizontalScroll = () => {
+  const containerRef = useRef(null);
+
+  const handleScroll = (event) => {
+    const container = containerRef.current;
+    const scrollFactor = 4;
+    container.scrollTo({
+      left: container.scrollLeft + event.deltaY * scrollFactor,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="appContainer" ref={containerRef} onWheel={handleScroll}>
+      <main>
+        <section>erste section</section>
+        <section>zweite section</section>
+        <section>dritte section</section>
+        <section>vierte section</section>
+      </main>
     </div>
   );
-}
+};
 
-export default App;
+export default HorizontalScroll;
